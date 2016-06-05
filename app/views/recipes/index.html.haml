@@ -1,0 +1,8 @@
+%h2 recipes
+-@recipes.each do |recipe|
+  %b
+    %p=link_to recipe.title, recipe
+  %p=link_to 'edit recipe', edit_recipe_path(recipe)
+  %p=link_to 'delete receipe', recipe_path(recipe), method: :delete
+%h3
+  %p= link_to 'new recipe', new_recipe_path
