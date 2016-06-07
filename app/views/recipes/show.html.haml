@@ -1,5 +1,29 @@
-%h3 welcome to show page
-%p= @recipe.title
-%p= @recipe.description
-
-=link_to 'home', root_path
+.container
+  .row
+    .col-md-4
+      %p=image_tag @recipe.image.url(:medium)
+    .col-md-8
+      .show-title-style
+        = @recipe.title
+      .show-description-style
+        = @recipe.description
+  .row
+    .col-md-6
+      .show-title-style
+        Ingredients
+      - @recipe.ingredients.each do |ingredient|
+        .show-items-style
+          %ul
+            %li= ingredient.name
+    .col-md-6
+      .show-title-style
+        Directions
+      - @recipe.directions.each do |direction|
+        .show-items-style
+          %ul
+            %li= direction.step
+  .row
+    .col-md-12
+      = link_to 'edit', edit_recipe_path(@recipe),class: 'btn btn-default'
+      = link_to 'delete', recipe_path(@recipe), method: :delete, class: 'btn btn-default'
+      =link_to 'home', root_path, class: 'btn btn-default'

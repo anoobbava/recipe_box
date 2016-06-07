@@ -1,8 +1,9 @@
-%h2 recipes
--@recipes.each do |recipe|
-  %b
-    %p=link_to recipe.title, recipe
-  %p=link_to 'edit recipe', edit_recipe_path(recipe)
-  %p=link_to 'delete receipe', recipe_path(recipe), method: :delete
-%h3
-  %p= link_to 'new recipe', new_recipe_path
+-@recipes.each_slice(3) do |recipes|
+  .row
+    -recipes.each do |recipe|
+      .col-md-4
+        .recipe1
+          .grow
+            = link_to recipe do
+              = image_tag recipe.image.url(:medium)
+          %h2= link_to recipe.title, recipe
