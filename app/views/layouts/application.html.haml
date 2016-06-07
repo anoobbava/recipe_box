@@ -10,8 +10,9 @@
       .container
       .navbar-brand= link_to 'Recipe Box',root_path
       %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'signout', destroy_user_session_path, method: :delete
         %li= link_to 'Recipe', new_recipe_path
-        %li= link_to 'signin', root_path
+        %li= link_to 'signin', new_user_session_path
     .container
       -flash.each do |name, msg|
         =content_tag :div, msg, class: 'alert'
