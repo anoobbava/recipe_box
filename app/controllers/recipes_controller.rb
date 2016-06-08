@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
-      redirect_to @recipe, notice: 'successfully added'
+      redirect_to @recipe, notice: 'successfully added Recipe'
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
 
   def update
     if @recipe.update(recipe_params)
-      redirect_to @recipe
+      redirect_to @recipe, notice: 'successfully Updated'
     else
       render 'edit'
     end
@@ -37,9 +37,9 @@ class RecipesController < ApplicationController
   def destroy
     if @recipe.user == current_user
       @recipe.destroy
-      redirect_to root_path
+      redirect_to root_path, notice: 'successfully Deleted your Recipe'
     else
-      render @recipe, notice: 'you cant delete others recipe'
+      redirect_to @recipe, notice: 'You cant delete others recipe!!!!'
     end
   end
 
