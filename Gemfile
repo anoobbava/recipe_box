@@ -16,6 +16,7 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.1', '>= 4.1.1'
+gem 'figaro'
 group :development, :test do
   gem 'byebug'
 end
@@ -24,5 +25,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'pry'
   gem 'spring'
+  gem 'penmig'
+  gem 'mailcatcher', '~> 0.6.4'
 end
 
